@@ -16,7 +16,11 @@ const Header = () => {
   }, []);
 
   const handleDropdown = (dropdown) => {
-    setActiveDropdown(activeDropdown === dropdown ? null : dropdown);
+    setActiveDropdown(dropdown);
+  };
+
+  const handleMouseLeave = () => {
+    setActiveDropdown(null);
   };
 
   const handleSignOut = () => {
@@ -49,27 +53,25 @@ const Header = () => {
         </div>
 
         <div className="flex space-x-4 items-center relative">
-          <button onClick={() => handleDropdown('insure')} className="focus:outline-none">
-            <div>Insure</div>
-          </button>
-          {activeDropdown === 'insure' && (
-            <div className="absolute left-0 top-full bg-white shadow-lg mt-2 rounded-lg z-50">
-              <Link to='/ihealth'><div className="px-4 py-2 text-black hover:bg-gray-200">Health Insurance</div></Link>
-              <Link to='/imotor'><div className="px-4 py-2 text-black hover:bg-gray-200">Motor Insurance</div></Link>
-            </div>
-          )}
-
-          <Link to='/Renew'>
-            <button onClick={() => handleDropdown('renew')} className="focus:outline-none">
-              <div>Renew</div>
+          <div
+            onMouseEnter={() => handleDropdown('insure')}
+            onMouseLeave={handleMouseLeave}
+            className="relative"
+          >
+            <button className="focus:outline-none">
+              <div>Insure</div>
             </button>
-          </Link>
-          {activeDropdown === 'renew' && (
-            <div className="absolute left-0 top-full bg-white shadow-lg mt-2 rounded-lg z-50">
-              <Link to='/ihealth'><div className="px-4 py-2 text-black hover:bg-gray-200">Health Renew</div></Link>
-              <Link to='/imotor'><div className="px-4 py-2 text-black hover:bg-gray-200">Motor Renew</div></Link>
-            </div>
-          )}
+            {activeDropdown === 'insure' && (
+              <div
+                className="absolute left-0 top-full bg-white shadow-lg mt-2 rounded-lg z-50"
+                onMouseEnter={() => handleDropdown('insure')}
+                onMouseLeave={handleMouseLeave}
+              >
+                <Link to='/ihealth'><div className="px-4 py-2 text-black hover:bg-gray-200">Health Insurance</div></Link>
+                <Link to='/imotor'><div className="px-4 py-2 text-black hover:bg-gray-200">Motor Insurance</div></Link>
+              </div>
+            )}
+          </div>
 
           <Link to='/Claim'><div>Claim</div></Link>
           <Link to='/Government'><div>Government Schemes</div></Link>
@@ -102,4 +104,9 @@ const Header = () => {
   );
 };
 
+
 export default Header;
+
+
+
+
