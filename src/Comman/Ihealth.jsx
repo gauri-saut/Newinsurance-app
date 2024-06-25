@@ -6,6 +6,7 @@ const IhealthNewUI = () => {
   const [name, setName] = useState('');
   const [age, setAge] = useState('');
   const [premium, setPremium] = useState(null);
+  const [selectedPolicy, setSelectedPolicy] = useState('');
 
   const handleNameChange = (e) => {
     setName(e.target.value);
@@ -13,6 +14,10 @@ const IhealthNewUI = () => {
 
   const handleAgeChange = (e) => {
     setAge(e.target.value);
+  };
+
+  const handlePolicyChange = (e) => {
+    setSelectedPolicy(e.target.value);
   };
 
   const calculatePremium = () => {
@@ -34,7 +39,7 @@ const IhealthNewUI = () => {
   };
 
   const handleProceedToPayment = () => {
-    localStorage.setItem('healthInsuranceData', JSON.stringify({ name, age, premium }));
+    localStorage.setItem('healthInsuranceData', JSON.stringify({ name, age, premium, selectedPolicy }));
     navigate('/HealthPayment');
   };
 
@@ -67,7 +72,7 @@ const IhealthNewUI = () => {
           </div>
           {/* Right Section */}
           <div className="md:w-1/2 p-6 bg-white">
-            <h2 className="text-3xl font-bold text-blue-900 mb-4">Calculate Your Premium</h2>
+            <h2 className="text-3xl font-bold text-blue-900 mb-4">Health Insurance Policy</h2>
             <div className="mb-4">
               <label className="block text-sm font-medium text-gray-700">Name</label>
               <input
@@ -87,6 +92,24 @@ const IhealthNewUI = () => {
                 className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                 required
               />
+            </div>
+            <div className="mb-4">
+              <label className="block text-sm font-medium text-gray-700">Policy</label>
+              <select
+                value={selectedPolicy}
+                onChange={handlePolicyChange}
+                className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                required
+              >
+                <option value="">Select a policy</option>
+                <option value="healthGuardPolicy">Health Guard Policy</option>
+                <option value="healthInsurance">Health Insurance</option>
+                <option value="starPackage">Star Package</option>
+                <option value="gmcPolicy">GMC Policy</option>
+                <option value="newBusinessPolicy">New Business Policy</option>
+                <option value="extraCarePolicy">Extra Care Policy</option>
+                <option value="hospitalCashPolicy">Hospital Cash Policy</option>
+              </select>
             </div>
             <div className="mb-4">
               <button
@@ -118,5 +141,6 @@ const IhealthNewUI = () => {
     </div>
   );
 };
+
 
 export default IhealthNewUI;

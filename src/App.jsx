@@ -24,6 +24,7 @@ import UpdateKYC from './Update-KYC';
 
 
 
+
 function App() {
   return (
     <Router>
@@ -35,12 +36,26 @@ function App() {
         <Route path='/signup' element={<Signup />} />
         <Route path='/newinsurance' element={<NewInsurance />} />
         <Route path='/renew' element={<Renew />} />
-        <Route path='/insure' element={<Insure />} />
-        <Route path='/insanjo' element={<InSanjo />} />
+
+
+        
+        <Route path='/insure' element={<Support />} />
+
+
         <Route path='/govschem' element={<GovSchem />} />
+
+        <Route path='/' element={<Support />} />
+
+
         <Route path='/support' element={<Support />} />
+
+
+
         <Route path='/about' element={<About />} />
+
         <Route path='/careers' element={<Careers />} />
+
+
         <Route path='/become' element={<Become />} />
         <Route path='/award' element={<Award />} />
         <Route path='/ihealth' element={<Ihealth />} />
@@ -53,7 +68,8 @@ function App() {
         <Route path='/HealthPayment' element={<HealthPayment />} />
         <Route path='/HealthPremiumDetails' element={<HealthPremiumDetails />} />
         <Route path='/Claim' element={<Claim/>}/>
-        <Route path='/Update-KYC' element={<Claim/>}/>
+
+        <Route path='/Update-KYC' element={<UpdateKYC/>}/>
 
 
       </Routes>

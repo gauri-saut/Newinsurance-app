@@ -6,7 +6,6 @@ const UpdateKYC = () => {
   const [email, setEmail] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
   const [name, setName] = useState('');
-  const [incidentDescription, setIncidentDescription] = useState('');
   const [insuranceDocument, setInsuranceDocument] = useState(null);
   const [premiumDocument, setPremiumDocument] = useState(null);
   const [supportiveDocument, setSupportiveDocument] = useState(null);
@@ -30,15 +29,15 @@ const UpdateKYC = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Here you would handle form submission logic, such as API calls or local storage
-    // For demo purposes, we are logging the form data
+
+
+    
     console.log({
       aadharNumber,
       panCardNumber,
       email,
       phoneNumber,
       name,
-      incidentDescription,
       insuranceDocument,
       premiumDocument,
       supportiveDocument,
@@ -53,7 +52,6 @@ const UpdateKYC = () => {
     setEmail('');
     setPhoneNumber('');
     setName('');
-    setIncidentDescription('');
     setInsuranceDocument(null);
     setPremiumDocument(null);
     setSupportiveDocument(null);
@@ -62,7 +60,7 @@ const UpdateKYC = () => {
   return (
     <div className="min-h-screen bg-gray-100 p-6">
       <div className="max-w-screen-md mx-auto bg-white rounded-lg shadow-lg p-6">
-        <h2 className="text-3xl font-bold text-gray-800 mb-6">Update KYC</h2>
+        <h2 className="text-3xl font-bold text-gray-800 mb-6">Updated CKYC Details</h2>
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
             <label className="block text-sm font-medium text-gray-700">Aadhar Number</label>
@@ -76,7 +74,7 @@ const UpdateKYC = () => {
           </div>
 
           <div className="mb-4">
-            <label className="block text-sm font-medium text-gray-700">PAN Card Number</label>
+            <label className="block text-sm font-medium text-gray-700">PAN Number</label>
             <input
               type="text"
               value={panCardNumber}
@@ -114,16 +112,6 @@ const UpdateKYC = () => {
               type="text"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-              required
-            />
-          </div>
-
-          <div className="mb-4">
-            <label className="block text-sm font-medium text-gray-700">What Happened? Incident Description</label>
-            <textarea
-              value={incidentDescription}
-              onChange={(e) => setIncidentDescription(e.target.value)}
               className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
               required
             />
@@ -168,7 +156,7 @@ const UpdateKYC = () => {
               type="submit"
               className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300"
             >
-              Submit KYC Update
+              Submit CKYC Update
             </button>
           </div>
         </form>

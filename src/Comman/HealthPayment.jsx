@@ -39,7 +39,7 @@ const HealthPayment = () => {
         {!isPaymentSuccess && (
           <>
             <div className="mb-4">
-              <label className="block text-sm font-medium text-gray-700">Mother's Name</label>
+              <label className="block text-sm font-medium text-gray-700">Proposer Details</label>
               <input
                 type="text"
                 value={motherName}
