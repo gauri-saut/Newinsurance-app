@@ -22,7 +22,7 @@ const Signin = () => {
 
     if (storedData && storedData.email === formData.email && storedData.password === formData.password) {
       alert('Login successfully');
-      navigate.push('/');  
+      navigate('/');  
     } else {
       alert('Invalid email or password');
     }

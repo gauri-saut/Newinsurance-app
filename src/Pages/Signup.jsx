@@ -24,7 +24,7 @@ const Signup = () => {
     // Store the form data in local storage
     localStorage.setItem('signupData', JSON.stringify(formData));
     alert('Form data saved to local storage');
-    navigate("/login"); // Navigate to the login page
+    navigate("/login");
   };
 
   return (
